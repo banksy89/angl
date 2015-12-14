@@ -1,0 +1,15 @@
+/**
+ * Tabs
+ */
+
+.tabs {
+
+}
+
+.tabs > div {
+    display: none;
+}
+
+.tabs > .active {
+    display: block;
+}

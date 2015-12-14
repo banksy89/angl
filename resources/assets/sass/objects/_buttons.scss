@@ -1,0 +1,51 @@
+.button {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    padding: 16px;
+    display: inline-block;
+    letter-spacing: 1.2;
+    width: 100%;
+    color: $white;
+    @include rem(20px);
+
+
+    &:hover {
+        transition: 0.1s ease-in;
+    }
+
+    @include breakpoint(mobile) {
+        min-width: 100%;
+        text-align: center;
+    }
+}
+
+.button--trans {
+    border: 1px solid rgba(white, 0.3);
+    color: $white;
+
+    &:hover {
+        background: $white;
+        color: $black;
+    }
+}
+
+.button--trans-invert {
+    color: $black;
+    background: $white;
+
+    &:hover {
+        border: 1px solid rgba(white, 0.3);
+        background: transparent;
+        color: $white;
+    }
+}
+
+.button--submit {
+    background: $green;
+
+    &:hover {
+        background: lighten($green, 10%);
+    }
+}

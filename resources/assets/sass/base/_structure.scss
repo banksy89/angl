@@ -1,0 +1,29 @@
+* {
+    @include box-sizing(border-box);
+}
+
+html {
+    font-size: $base-px;
+    overflow-y: scroll;
+    min-height: 100%;
+}
+
+body {
+    font-family: $f-light, Helvetica, Arial;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.03em;
+    -webkit-text-size-adjust: none;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.outer-wrapper {
+    background: #fff;
+}

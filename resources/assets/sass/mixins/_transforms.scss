@@ -1,0 +1,9 @@
+@mixin vertial-middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin vertial-middle--third {
+    top: 35%;
+    transform: translateY(-50%);
+}

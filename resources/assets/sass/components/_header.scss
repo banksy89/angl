@@ -1,0 +1,32 @@
+.header {
+    text-align: right;
+    padding-right: 40px;
+    z-index: 3;
+    position: relative;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        text-align: left;
+    }
+
+}
+
+.header-nav {
+    font-family: $f-thin;
+}
+
+.header-nav__item {
+    margin-left: 20px;
+    @include rem(14px);
+    a {
+        color: $white;
+    }
+
+    @include breakpoint(mobile) {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}

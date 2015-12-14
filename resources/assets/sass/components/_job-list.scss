@@ -1,0 +1,16 @@
+.job-list {
+    border: 2px solid $dark-grey;
+    margin-top: 40px;
+}
+
+.job-item {
+    padding: 10px;
+
+    &:nth-child(even) {
+        background: $light-grey;
+    }
+}
+
+.job-item__title {
+    margin: 0;
+}

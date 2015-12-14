@@ -1,0 +1,49 @@
+/**
+ * Titles
+ */
+
+.title {
+    margin-top: 0;
+    font-family: $f-bold;
+    letter-spacing: 1;
+}
+
+.title--primary {
+    @include rem(42px);
+}
+
+.title--secondary {
+    @include rem(32px);
+}
+
+.title--secondary-sub {
+    @include rem(22px);
+}
+
+.title--explain {
+    @include rem(18px);
+    font-family: open_sanslight;
+}
+
+.title--inverted {
+    color: $white;
+}
+
+/**
+ * Body Copy
+ */
+
+.body {
+    font-family: $f-light;
+    @include rem(18px);
+}
+
+.body-wrap {
+    width: 60%;
+    margin: auto;
+    line-height: 1.4;
+}
+
+.body--inverted {
+    color: $white;
+}

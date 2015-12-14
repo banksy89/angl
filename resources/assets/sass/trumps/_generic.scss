@@ -1,0 +1,11 @@
+.hide {
+	display: none;
+}
+
+.s-display {
+	display: none;
+
+    @include breakpoint(mobile) {
+        display: block;
+    }
+}

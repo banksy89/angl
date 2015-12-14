@@ -1,0 +1,43 @@
+.section {
+    padding: 40px 0;
+    text-align: center;
+    border-color: $light-grey;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.section--push {
+    margin-top: 100px;
+}
+
+.section--tight {
+    padding: 20px;
+}
+
+.section--push-bottom {
+    margin-bottom: 100px;
+}
+
+.section--bordered-bottom {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.section--bordered-top {
+    border-top-style: solid;
+    border-top-width: 4px;
+}
+
+.section--dark {
+    color: $white;
+    background-color: #222;
+}
+
+.section__content {
+}
+
+.section__content--left-align {
+    text-align: left;
+    line-height: 1.4;
+}
