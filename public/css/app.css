@@ -691,6 +691,10 @@ del:after {
   text-align: left;
 }
 
+.navigation--right {
+  text-align: right;
+}
+
 .navigation--block {
   margin-top: 14px;
   text-align: left;
@@ -820,9 +824,9 @@ blockquote p:after {
 
 .header {
   text-align: right;
-  padding-right: 40px;
   z-index: 3;
   position: relative;
+  padding-top: 20px;
 }
 
 @media screen and (max-width: 580px) {
@@ -834,12 +838,19 @@ blockquote p:after {
   }
 }
 
+.header--over {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 .header-nav {
   font-family: montserrathairline;
 }
 
 .header-nav__item {
   margin-left: 20px;
+  color: #fff;
   font-size: 14px;
   font-size: 0.875rem;
 }

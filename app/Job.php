@@ -18,4 +18,9 @@ class Job extends Model
      * @var array
      */
     protected $fillable = ['title', 'industry'];
+
+    public static function boot()
+    {
+        parent::boot();
+    }
 }

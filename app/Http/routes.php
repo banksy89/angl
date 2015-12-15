@@ -18,7 +18,7 @@ Route::get('/', function () {
 // API Specific Routes
 Route::group(['prefix' => 'api'], function () {
     Route::resource('jobs',
-                    'JobsController',
+                    'JobsApiController',
                     [
                         'only' => [
                             'index',
@@ -32,4 +32,5 @@ Route::group(['prefix' => 'api'], function () {
 });
 
 Route::get('/jobs', 'JobsController@listing');
+Route::get('/jobs/{urlname}', 'JobsController@show');
 Route::get('/jobs/edit/{id}', 'JobsController@edit');

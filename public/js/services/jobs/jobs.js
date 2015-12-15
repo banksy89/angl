@@ -2,6 +2,12 @@ define(['../module'], function (services) {
     'use strict';
 
     services.factory('JobsService', ['$http', function ($http) {
+
+        /**
+         * Base API location
+         *
+         * @type {String}
+         */
         var baseApi = '/api/jobs/';
 
         var Jobs = this;
@@ -24,7 +30,17 @@ define(['../module'], function (services) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         Jobs.addJob = function (job) {
-            // Add job
+
+            // Only attempt insertion with data
+            if (null == job) {
+                return false;
+            }
+
+            return $http({
+                method: "post",
+                url:    baseApi,
+                params: job
+            });
         }
 
         /**
@@ -36,6 +52,12 @@ define(['../module'], function (services) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         Jobs.updateJob = function (jobId, jobData) {
+
+            // Only attempt update with job id
+            if (null == jobId) {
+                return false;
+            }
+
             return $http({
                 method: "put",
                 url:    baseApi + jobId,

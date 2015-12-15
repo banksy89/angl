@@ -8,6 +8,7 @@
 </head>
     <body>
         <div class="outer-wrapper">
+            @include ('layout.header')
             <div class="container">
                 @yield('content')
             </div>

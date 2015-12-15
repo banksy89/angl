@@ -15,12 +15,7 @@ define(['../module'], function (controllers) {
                     action: "search",
                     title: jobList.title,
                     industry: jobList.industry
-                },
-                data: {
-                    title: jobList.title,
-                    industry: jobList.industry
                 }
-
             });
 
             request.success(function (data, status, headers, config) {

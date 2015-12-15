@@ -1,6 +1,6 @@
 define([
     'angular',
-    'angular-route',
+    // 'angular-route',
     './controllers/intro-form/index',
     './controllers/jobs/index',
     './directives/intro-form/index',
@@ -14,7 +14,7 @@ define([
         'app.directives',
         //'app.filters',
         'app.services',
-        'ngRoute'
+        // 'ngRoute'
     ],
     // Overide angular tags to avoid conflict
     function($interpolateProvider) {

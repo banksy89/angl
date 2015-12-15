@@ -1,29 +1,39 @@
 define(['../module'], function (controllers) {
     'use strict';
 
-    controllers.controller('IntroFormController', function ($scope, $http, $window) {
+    /**
+     * Handles the posting of the intro form
+     *
+     * @param  {Object} $scope
+     * @param  {Object} $http
+     * @param  {Object} $window
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
+    controllers.controller('IntroFormController', function ($scope, $http, $window, JobsService) {
 
         var introForm = this;
-        introForm.industry = 'Select';
 
+        /**
+         * Posts job to be saved and re-routes application
+         *
+         * @author Ashley Banks <ashleysmbanks89@gmail.com>
+         */
         introForm.postJob = function () {
-            var request = $http({
-                method: "post",
-                url:    "api/jobs",
-                cache: true,
-                params: {
-                    title: introForm.title,
-                    industry: introForm.industry,
-                }
-            });
 
-            request.success(function (data, status, headers, config) {
+            // Only post if we have a value for title first
+            if ('' != introForm.title) {
+                var request = JobsService.addJob({title: introForm.title, industry: introForm.industry});
 
-                // Upon successful creation send them to the initial edit page
-                if (data.success == true) {
-                    $window.location.href = "/jobs/edit/" + data.contents.id;
-                }
-            });
+                request.success(function (data) {
+
+                    // Upon successful creation send them to the initial edit page
+                    if (data.success == true) {
+                        $window.location.href = "/jobs/" + data.contents.id;
+                    }
+                });
+            }
+
+            return false;
         }
 
     });

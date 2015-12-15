@@ -1,8 +1,8 @@
 .header {
     text-align: right;
-    padding-right: 40px;
     z-index: 3;
     position: relative;
+    padding-top: 20px;
 
     @include breakpoint(mobile) {
         padding: 0;
@@ -14,12 +14,20 @@
 
 }
 
+.header--over {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
 .header-nav {
     font-family: $f-thin;
 }
 
 .header-nav__item {
     margin-left: 20px;
+    color: $white;
+
     @include rem(14px);
     a {
         color: $white;
