@@ -15,11 +15,14 @@ define(['../module'], function (controllers) {
         var job = this;
             job.data = {};
 
-        var jobData = JobsService.getJob(3);
+        // Doesn't feel very angulary but temporarily grabbing from a hidden value
+        var jobId = $('#js-job-id').val();
+
+        var jobData = JobsService.getJob(jobId);
 
         // Populate the form with any data we have
         jobData.success(function (data) {
-            if (data.status == true) {
+            if (data.success == true) {
                 job.data = data.contents;
             }
         });
@@ -30,13 +33,15 @@ define(['../module'], function (controllers) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         job.updateJob = function () {
-            var update = JobsService.updateJob(job.data.id, job.data);
+            if ($scope.form.$valid) {
+                var update = JobsService.updateJob(job.data.id, job.data);
 
-            update.success(function (data) {
-                if (data.success) {
-                    $window.location.href = '/jobs/show/' + job.data.urlname;
-                }
-            });
+                update.success(function (data) {
+                    if (data.success) {
+                        $window.location.href = '/jobs/show/' + job.data.urlname;
+                    }
+                });
+            }
         }
     });
 });

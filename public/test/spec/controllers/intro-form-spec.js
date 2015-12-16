@@ -1,8 +1,7 @@
 define(['angular',
         'app',
-        // 'services/index',
          'angularMocks'
-], function (angular, IntroFormController) {
+], function (angular) {
 
     describe('IntroFormController', function () {
 

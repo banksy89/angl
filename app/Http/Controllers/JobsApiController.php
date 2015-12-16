@@ -92,12 +92,12 @@ class JobsApiController extends Controller
      */
     public function show($id = "")
     {
-        $payload['status'] = false;
+        $payload['success'] = false;
 
         $output = Job::find($id);
 
         if (false !== $output) {
-            $payload['status']   = true;
+            $payload['success']   = true;
             $payload['contents'] = $output;
         }
 
@@ -113,10 +113,10 @@ class JobsApiController extends Controller
      */
     public function destroy($id = "")
     {
-        $payload['status'] = false;
+        $payload['success'] = false;
 
         if (false !== Job::destroy($id)) {
-            $payload['status'] = true;
+            $payload['success'] = true;
         }
 
         return response()->json($payload);

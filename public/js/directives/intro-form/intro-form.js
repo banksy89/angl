@@ -16,7 +16,7 @@ define(['../module'], function (directives) {
                     angular.forEach(panels, function(panel) {
                         panel.selected = false;
                     });
-                        panel.selected = true;
+                    panel.selected = true;
                 }
 
                 this.addPanel = function (panel) {

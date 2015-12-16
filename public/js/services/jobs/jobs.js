@@ -20,7 +20,7 @@ define(['../module'], function (services) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         Jobs.getJob = function (jobId) {
-            return $http.get(baseApi + jobId);
+            return $http.get(baseApi + jobId, {cache: true});
         }
 
         /**

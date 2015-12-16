@@ -1,1 +1,1 @@
-define(['./jobs/jobs'], function () {});
+define(['./jobs/jobs', './users'], function () {});

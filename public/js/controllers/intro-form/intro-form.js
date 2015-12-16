@@ -22,13 +22,13 @@ define(['../module'], function (controllers) {
 
             // Only post if we have a value for title first
             if ('' != introForm.title) {
-                var request = JobsService.addJob({title: introForm.title, industry: introForm.industry});
+                var request = JobsService.addJob({title: introForm.email, title: introForm.title, industry: introForm.industry});
 
                 request.success(function (data) {
 
                     // Upon successful creation send them to the initial edit page
                     if (data.success == true) {
-                        $window.location.href = "/jobs/" + data.contents.id;
+                        $window.location.href = "/jobs/edit/" + data.contents.id;
                     }
                 });
             }

@@ -635,6 +635,11 @@ a {
   color: #30373b;
 }
 
+.ajax-loader {
+  width: 16px;
+  margin: auto;
+}
+
 del {
   position: relative;
   text-decoration: none;

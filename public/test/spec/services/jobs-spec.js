@@ -1,8 +1,7 @@
 define(['angular',
         'app',
-        // 'services/index',
-         'angularMocks'
-], function (angular, JobsService) {
+        'angularMocks'
+], function (angular) {
 
     describe('JobsService', function () {
 
@@ -18,7 +17,6 @@ define(['angular',
         afterEach(function() {
             // httpBackend.verifyNoOutstandingExpectation();
             // httpBackend.verifyNoOutstandingRequest();
-            // httpBackend.flush();
         });
 
         it("should be defined", inject(function (JobsService) {
@@ -35,7 +33,8 @@ define(['angular',
                 expect(data.contents.id).toEqual(1);
             });
 
-            // Receive error about parsing json at the minute
+            // Receive error about parsing json at the minute so taken out
+            // httpBackend.flush();
         });
 
         it('should add job successfullly', function () {
