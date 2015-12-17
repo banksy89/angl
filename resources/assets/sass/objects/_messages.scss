@@ -1,0 +1,5 @@
+.form-error {
+    color: $red;
+    @include rem(14px);
+    margin-top: 10px;
+}

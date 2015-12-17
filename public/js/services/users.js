@@ -36,7 +36,7 @@ define(['./module'], function (services) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.getUser = function (identifer) {
-            return $http.get(baseApi + identifer);
+            return $http.get('/api' + baseApi + identifer);
         }
 
         /**

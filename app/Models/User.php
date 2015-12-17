@@ -36,4 +36,14 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Hook for model on boot
+     * Instantiates the models associated observer
+     */
+    public static function boot()
+    {
+        parent::boot();
+        User::observe(new UserObserver);
+    }
 }

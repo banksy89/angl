@@ -13,6 +13,22 @@ define(['../module'], function (services) {
         var Jobs = this;
 
         /**
+         * Provides an array of results by a given search
+         *
+         * @param  {Object} params - Parameters to pass to query
+         * @return {Array}
+         * @author Ashley Banks <ashleysmbanks89@gmail.com>
+         */
+        Jobs.search = function (params) {
+            return $http({
+                method: "get",
+                url:    "api/jobs",
+                cache: true,
+                params: params
+            });
+        }
+
+        /**
          * Retrieves a job post
          *
          * @param  {Integer} The kob identifier

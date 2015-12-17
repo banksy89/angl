@@ -18,15 +18,11 @@ define(['../module'], function (controllers) {
         // Doesn't feel very angulary but temporarily grabbing from a hidden value
         var jobId = $('#js-job-id').val();
 
-        var jobData = JobsService.getJob(jobId);
-
-        // Populate the form with any data we have
-        jobData.success(function (data) {
-            if (data.success == true) {
-                job.data = data.contents;
+        JobsService.getJob(jobId).then(function (data) {
+            if (false !== data.data.success)  {
+                job.data = data.data.contents;
             }
         });
-
         /**
          * Updates a job
          *
@@ -38,7 +34,7 @@ define(['../module'], function (controllers) {
 
                 update.success(function (data) {
                     if (data.success) {
-                        $window.location.href = '/jobs/show/' + job.data.urlname;
+                        $window.location.href = '/jobs/preview/' + job.data.id;
                     }
                 });
             }

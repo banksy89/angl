@@ -89,13 +89,13 @@ class UserController extends Controller
         $payload['status'] = false;
 
         // Integer fallback to standard id field otherwise check for email
-        if (false !== intval($id)) {
+        if (0 !== intval($id) && $id > 0) {
             $output = User::find($id);
         } else {
             $output = User::where('email', '=', $id)->first();
         }
 
-        if (false !== $output) {
+        if (null !== $output) {
             $payload['status']   = true;
             $payload['contents'] = $output;
         }

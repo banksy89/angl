@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/home', function () {
-    return view('index');
-});
+// Home routes
+Route::get('/', 'IndexController@index');
+Route::get('/home', 'IndexController@index');
 
 // API Specific Routes
 Route::group(['prefix' => 'api'], function () {
@@ -66,6 +62,8 @@ Route::get('/account/login', 'AccountController@login');
 // Jobs routes...
 Route::get('/jobs', 'JobsController@listing');
 Route::get('/jobs/show/{urlname}', 'JobsController@show');
+Route::get('/jobs/preview/{id}', 'JobsController@preview');
 Route::get('/jobs/edit/{id}', 'JobsController@edit');
 Route::get('/jobs/user/{id}', 'JobsController@user');
+Route::get('/jobs/complete', 'JobsController@complete');
 

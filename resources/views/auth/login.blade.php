@@ -11,7 +11,7 @@
                 <div class="field">
                     <label for="email">Email Address</label>
                     <input type="email" ng-model="loginForm.email" class="input" name="email" required="" />
-                    <div ng-show="form.$submitted || form.email.$touched">
+                    <div ng-show="form.$submitted || form.email.$touched" class="form-error">
                       <span ng-show="form.email.$error.required">Tell us your email.</span>
                       <span ng-show="form.email.$error.email">This is not a valid email.</span>
                     </div>
@@ -20,7 +20,7 @@
                 <div class="field">
                     <label for="password">Password</label>
                     <input type="password" ng-model="loginForm.password" class="input" name="password" required="" />
-                    <div ng-show="form.$submitted || form.password.$touched">
+                    <div ng-show="form.$submitted || form.password.$touched" class="form-error">
                       <span ng-show="form.password.$error.required">Tell us your password.</span>
                     </div>
                 </div>

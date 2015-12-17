@@ -1,8 +1,8 @@
 @extends('layout.default')
 @section('content')
     <div class="wrap">
-        <section class="content" ng-controller="JobsListController as jobsList">
-            <h1>Listing</h1>
+        <section class="section" ng-controller="JobsListController as jobsList">
+            <h1>Jobs listing</h1>
             <div class="">
                 <form class="form" ng-submit="jobsList.search()">
                     <input type="hidden" name="action" value="search" />
@@ -16,11 +16,12 @@
                         <label for="">Job title</label>
                         {!! Form::text('title', 'Awesome apprentice', ['class' => 'input', 'ng-model' => 'jobsList.title']) !!}
                     </div>
-                    <input type="submit" class="button button--submit" value="Start Search!" />
+                    <input type="submit" class="button" value="Filter jobs" />
                 </form>
             </div>
-            <div class="job-list">
-                <h1>Displays <% jobsList.items.length %></h1>
+            <div class="job-list" ng-show="jobsList.items">
+                <p class="body">Displaying <% jobsList.items.length %> jobs</p>
+                <p ng-show="jobsList.noResults">No jobs to display for search criteria</p>
                 <div class="job-item" ng-repeat="job in jobsList.items">
                     <h2 class="job-item__title"><% job.title %></h2>
                     <p>Industry: <% job.industry %></p>
@@ -29,7 +30,4 @@
             </div>
         </section>
     </div>
-    <script type="text/javascript">
-        var jobs = {!! json_encode($jobs) !!}
-    </script>
 @stop

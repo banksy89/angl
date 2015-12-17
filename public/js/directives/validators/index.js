@@ -1,1 +1,0 @@
-define(['./username', './password-check'], function () {});

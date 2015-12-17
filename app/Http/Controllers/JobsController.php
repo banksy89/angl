@@ -14,21 +14,42 @@ class JobsController extends Controller
      */
     public function listing()
     {
-        $job = new Job();
-
-        return view('jobs.listing', $viewData);
+        return view('jobs.listing');
     }
 
     /**
      * Edits a job
      *
      * @param  string $id
-     * @return [type]
+     * @return Response
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
     public function edit($id = "")
     {
         return view('jobs.edit', ['id' => $id]);
+    }
+
+    /**
+     * Preview of a job for company use
+     *
+     * @param  string $id
+     * @return Response
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
+    public function preview($id = "")
+    {
+        $job = Job::find($id);
+
+        if (false === $job) {
+            throw new Exception("Must provide valid job identifier to preview job");
+        }
+
+        if (false !== Auth::check()) {
+            return view('jobs.preview', ['id' => $id]);
+        }
+
+        // Redirect to another stage
+        return redirect('jobs/user/' . $job->id);
     }
 
     /**
@@ -52,6 +73,17 @@ class JobsController extends Controller
 
         // Redirect to another stage
         return redirect('jobs/user/' . $job->id);
+    }
+
+    /**
+     * Completed page for adding a job
+     *
+     * @return Response
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
+    public function complete()
+    {
+        return view('jobs.complete');
     }
 
     /**

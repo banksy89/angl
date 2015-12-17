@@ -1,4 +1,5 @@
 define(['../module'], function (controllers) {
+
     'use strict';
 
     /**
@@ -22,13 +23,16 @@ define(['../module'], function (controllers) {
 
             // Only post if we have a value for title first
             if ('' != introForm.title) {
-                var request = JobsService.addJob({title: introForm.email, title: introForm.title, industry: introForm.industry});
+                var sendData = {
+                                email: introForm.email,
+                                title: introForm.title,
+                                industry: introForm.industry
+                };
 
-                request.success(function (data) {
-
-                    // Upon successful creation send them to the initial edit page
-                    if (data.success == true) {
-                        $window.location.href = "/jobs/edit/" + data.contents.id;
+                var request = JobsService.addJob(sendData).then(function (data) {
+                    var responseData = data.data;
+                    if (200 == data.status && false !== responseData.status) {
+                        $window.location.href = "/jobs/edit/" + responseData.contents.id;
                     }
                 });
             }

@@ -31,22 +31,8 @@ define(['../module'], function (controllers) {
             var jobId = $('#js-job-id').val();
 
             if ($scope.form.$valid) {
-
-                // Call for the job information before saving the user
-                // Don't really need to do this but just playing with promises
-                // JobsService.getJob(jobId)
-                //            .then(function (data) {
-                //                 if (200 === data.status && true == data.data.success) {
-
-                //                     var job = data.data.contents;
-                //                     var userData = {email: Login.email, password: Login.password, jobId: job.id};
-
-                //                     Login.handleForm(userData, 'jobs/show/' + job.urlname);
-                //                 }
-                //            });
-
                 var userData = {email: Login.email, password: Login.password, jobId: jobId};
-                Login.handleForm(userData, '/jobs/show/' + jobId);
+                Login.handleForm(userData, '/jobs/preview/' + jobId);
             }
         }
 
@@ -66,7 +52,13 @@ define(['../module'], function (controllers) {
                 UsersService.addUser(user)
                             .then(function (data) {
                                  if (200 === data.status && true == data.data.success) {
-                                     window.location.href = location;
+
+                                    // Once a user has been created we want to log them
+                                    UsersService.login(user.email, user.password).then(function (response) {
+                                        if (200 === data.status && true == data.data.success) {
+                                            window.location.href = location;
+                                        }
+                                    });
                                  } else {
                                      Login.error = true;
                                  }

@@ -1,6 +1,7 @@
-<header class="header header--over">
+<header class="header @if (isset($headerOver) && $headerOver) header--trans @else header--normal @endif">
     <div class="wrap">
-        <nav class="navigation navigation--right">
+        <p class="header__logo">Hireable</p>
+        <nav class="header-nav navigation navigation--right">
             <a href="" class="header-nav__item">Post a job</a>
             <a href="" class="header-nav__item">About</a>
             <a href="" class="header-nav__item">Pricing</a>

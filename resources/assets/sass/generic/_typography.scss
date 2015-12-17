@@ -38,6 +38,14 @@
     @include rem(18px);
 }
 
+.body--left {
+    text-align: left;
+}
+
+.body--small {
+    @include rem(14px);
+}
+
 .body-wrap {
     width: 60%;
     margin: auto;

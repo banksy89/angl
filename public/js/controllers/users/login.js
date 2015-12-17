@@ -36,7 +36,10 @@ define(['../module'], function (controllers) {
 
                 response.success(function (data) {
                     if (false !== data.success) {
-                        window.location.href = '/account';
+
+                        var location = (!!$('#js-job-id').val() ? '/jobs/preview/' + $('#js-job-id').val() : '/account')
+
+                        window.location.href = location;
                     } else {
                         Login.error = true;
                     }

@@ -5,23 +5,25 @@ define(['../module'], function (directives) {
     /**
      * Directive validator for handling username eligibility
      */
-    directives.directive('username', function ($q, UsersService) {
+    directives.directive('usernameExists', function ($q, UsersService) {
         return {
+            restrict: 'AE',
             require: 'ngModel',
             link: function (scope, elm, attrs, ctrl) {
-                ctrl.$asyncValidators.username = function (modelValue, viewValue) {
+                ctrl.$asyncValidators.usernameExists = function (modelValue, viewValue) {
 
                     var def = $q.defer();
 
-                    var response = UsersService.getUser(modelValue);
+                    var response = UsersService.getUser(modelValue).then(function (data) {
 
-                    response.success(function (data) {
-                        // Error if there's an entry
-                        if (false !== data.status) {
+                        if (false !== data.data.status) {
+                            ctrl.$setValidity('usernameExists', true);
                             def.reject();
                         } else {
+                            ctrl.$setValidity('usernameExists', false);
                             def.resolve();
                         }
+
                     });
 
                     return def.promise;
