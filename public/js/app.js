@@ -1,5 +1,6 @@
 define([
     'angular',
+    // Keeping ngroute as search/dashboard/signup process with be angular route based
     // 'angular-route',
 
     // Controllers
@@ -22,6 +23,8 @@ define([
         'app.directives',
         //'app.filters',
         'app.services',
+
+        // Keeping ngroute as search/dashboard/signup process with be angular route based
         // 'ngRoute'
     ],
     // Overide angular tags to avoid conflict
