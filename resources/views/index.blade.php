@@ -5,8 +5,8 @@
         <div class="grid">
             <div class="l-two-thirds">
                 <div class="intro-content">
-                    <h1 class="intro__title"><em>Everyone</em> deserves a chance to grow</h1>
-                    <p class="intro__sub-title">The place for Interns and apprentices to kick-start their career and companies to build upon their team with passionate starters.</p>
+                    <h1 class="intro__title"><em>Lorem</em> Ipsum dollar</h1>
+                    <p class="intro__sub-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, convenire</li>
                         <li>Lorem ipsum dolor sit amet, convenire</li>
