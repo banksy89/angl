@@ -31,7 +31,6 @@ define(['../module'], function (directives) {
                 '<div>' +
                     '<div class="field-group">' +
                         '<p ng-repeat="panel in panels" ng-class="{active:panel.selected}" class="field field--radio field--inline">' +
-                            '<input type="radio" name="type" value="{{panel.title}}" id="{{panel.title}}" />' +
                             '<label for="{{panel.title}}" ng-click="select(panel)">{{panel.title}}</label>' +
                         '</p>' +
                     '</div>' +

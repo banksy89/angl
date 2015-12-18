@@ -634,6 +634,7 @@ select {
   display: block;
   color: #30373b;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .field--radio label {
