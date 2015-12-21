@@ -2,7 +2,7 @@ define(['../module'], function (controllers) {
 
     'use strict';
 
-    controllers.controller('RegisterController', function ($scope, $window, UsersService, JobsService) {
+    controllers.controller('RegisterController', function ($scope, $window, $routeParams, UsersService, JobsService) {
 
         var Login = this;
 
@@ -21,6 +21,13 @@ define(['../module'], function (controllers) {
         Login.loading = false;
 
         /**
+         * The job identifier from URL
+         *
+         * @type {String|Int}
+         */
+        var jobId = $routeParams.id;
+
+        /**
          * Action for creating a user from a job
          * it grabs the job by a hidden id and populates
          * the userData object and determines the redirect location
@@ -28,7 +35,6 @@ define(['../module'], function (controllers) {
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         Login.registerUserFromJob = function () {
-            var jobId = $('#js-job-id').val();
 
             if ($scope.form.$valid) {
                 var userData = {email: Login.email, password: Login.password, jobId: jobId};

@@ -42,9 +42,9 @@ Route::group(['prefix' => 'api'], function () {
                         ]
                     ]
     );
-
-    Route::get('user/authorised', 'UserController@authorised');
 });
+
+Route::get('user/authorise', 'UserController@authorise');
 
 Route::post('user/authenticate', 'UserController@authenticate');
 Route::get('user/authenticate', 'UserController@authenticate');

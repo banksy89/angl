@@ -14,7 +14,7 @@ define([
 
     // Services
     './services/index',
-    './services/session-injector'
+    './services/interceptors/auth-interceptor'
 ], function (angular) {
 
     'use strict';
@@ -24,8 +24,6 @@ define([
         'app.directives',
         //'app.filters',
         'app.services',
-
-        // Keeping ngroute as search/dashboard/signup process with be angular route based
         'ngRoute'
     ],
     // Overide angular tags to avoid conflict
@@ -36,7 +34,7 @@ define([
 
     // Pop in the session injector into the app
     app.config(['$httpProvider', function ($httpProvider) {
-        $httpProvider.interceptors.push('SessionInjector');
+        $httpProvider.interceptors.push('AuthInterceptor');
     }]);
 
     return app;

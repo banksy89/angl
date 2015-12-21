@@ -7,7 +7,7 @@ define(['../module'], function (controllers) {
      *
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
-    controllers.controller('JobsPreviewController', function ($scope, $http, $window, $routeParams, JobsService, UsersService) {
+    controllers.controller('JobsPreviewController', function ($scope, $window, $routeParams, JobsService) {
 
         $scope.data = {};
         $scope.showLogin = false;
@@ -16,7 +16,6 @@ define(['../module'], function (controllers) {
         var jobId = $routeParams.id;
 
         JobsService.getJob(jobId).then(function (data) {
-
             // Display preview otherwise display login/register template
             if (false !== data.config['user-authorised']) {
                 if (false !== data.data.success)  {

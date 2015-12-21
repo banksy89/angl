@@ -28,8 +28,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response json
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
-    public function authorised()
+    public function authorise()
     {
+        $output = Auth::attempt(['email' => 'asdasd@gary.com', 'password' => 'password']);
+
         $payload['status'] = Auth::check();
 
         return response()->json($payload);
