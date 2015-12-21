@@ -3,7 +3,9 @@ define(['../module'], function (directives) {
     'use strict';
 
     /**
-     * Directive validator for handling username eligibility
+     * Directive validator for handling username eligibility/uniqueness
+     *
+     * @param {Object} $q Promises library
      */
     directives.directive('usernameExists', function ($q, UsersService) {
         return {

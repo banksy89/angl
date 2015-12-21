@@ -11,10 +11,6 @@
 |
 */
 
-// Home routes
-Route::get('/', 'IndexController@index');
-Route::get('/home', 'IndexController@index');
-
 // API Specific Routes
 Route::group(['prefix' => 'api'], function () {
     Route::resource('jobs',
@@ -45,27 +41,16 @@ Route::group(['prefix' => 'api'], function () {
 });
 
 Route::get('user/authorise', 'UserController@authorise');
-
 Route::post('user/authenticate', 'UserController@authenticate');
-Route::get('user/authenticate', 'UserController@authenticate');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Account Routes...
 Route::get('/account/login', 'AccountController@login');
-
-// Jobs routes...
-// Route::get('/jobs', 'JobsController@listing');
-// Route::get('/jobs/show/{urlname}', 'JobsController@show');
-// Route::get('/jobs/preview/{id}', 'JobsController@preview');
-// Route::get('/jobs/edit/{id}', 'JobsController@edit');
-// Route::get('/jobs/user/{id}', 'JobsController@user');
-// Route::get('/jobs/complete', 'JobsController@complete');
 
 

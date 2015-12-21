@@ -14,6 +14,8 @@ define([
 
     // Services
     './services/index',
+
+    // Interceptors
     './services/interceptors/auth-interceptor'
 ], function (angular) {
 
@@ -32,7 +34,7 @@ define([
         $interpolateProvider.endSymbol('%>');
     });
 
-    // Pop in the session injector into the app
+    // Pop in any interceptors
     app.config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
     }]);

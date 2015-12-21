@@ -17,7 +17,7 @@ define(['./module'], function (services) {
          *
          * @param  {String} email
          * @param  {String} password
-         * @return {Object}
+         * @return {Object} promise
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.login = function (email, password) {
@@ -31,7 +31,7 @@ define(['./module'], function (services) {
         /**
          * Check a current valid session
          *
-         * @return {Boolean}
+         * @return {Boolean} promise
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.authorised = function () {
@@ -45,7 +45,7 @@ define(['./module'], function (services) {
          * Retrieves a user
          *
          * @param  {Integer|String} The user identifier
-         * @return {Object}
+         * @return {Object} promise
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.getUser = function (identifer) {
@@ -56,6 +56,7 @@ define(['./module'], function (services) {
          * Creates a user post
          *
          * @param  {Object} Data to store
+         * @return {Object} promise
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.addUser = function (user) {
@@ -77,7 +78,7 @@ define(['./module'], function (services) {
          *
          * @param  {Integer} jobId
          * @param  {Object} jobData
-         * @return {Object}
+         * @return {Object} promise
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
         User.updateUser = function (userId, userData) {

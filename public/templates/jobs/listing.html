@@ -1,0 +1,31 @@
+<div class="wrap">
+    <section class="section">
+        <h1>Jobs listing</h1>
+        <div class="">
+            <form class="form" ng-submit="search()">
+                <input type="hidden" name="action" value="search" />
+                <div class="field">
+                    <label for="">Industry</label>
+                    <select ng-model="industry">
+                        <option value="marketing">Marketing</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">Job title</label>
+                    <input type="text" class="input" ng-model="title" placeholder="Awesome Apprentice" />
+                </div>
+                <input type="submit" class="button" value="Filter jobs" />
+            </form>
+        </div>
+        <div class="job-list" ng-show="items">
+            <p ng-show="loading"><img src="/images/ajax-loader.gif" class="ajax-loader" /></p>
+            <p class="body">Displaying <% items.length %> jobs</p>
+            <p ng-show="noResults">No jobs to display for search criteria</p>
+            <div class="job-item" ng-repeat="job in items">
+                <h2 class="job-item__title"><% job.title %></h2>
+                <p>Industry: <% job.industry %></p>
+                <a href="#">View Job</a>
+            </div>
+        </div>
+    </section>
+</div>

@@ -8,6 +8,7 @@ define(['../module'], function (controllers) {
      * @param  {Object} $scope
      * @param  {Object} $http
      * @param  {Object} $window
+     * @param  {Object} JobsService
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
     controllers.controller('IntroFormController', function ($scope, $http, $window, JobsService) {
