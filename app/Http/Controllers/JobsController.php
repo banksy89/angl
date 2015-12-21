@@ -10,6 +10,18 @@ use App\Http\Controllers\Controller;
 class JobsController extends Controller
 {
     /**
+     * Index for Angular Jobs App
+     *
+     * @return [type]
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
+    public function index()
+    {
+        return view('jobs.index');
+    }
+
+
+    /**
      * Jobs displays search listing
      */
     public function listing()

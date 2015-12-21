@@ -10,9 +10,12 @@
     <body>
         <div class="outer-wrapper">
             @include ('layout.header')
-            <div class="container">
-                @yield('content')
+            <!-- Section where our angular templates will be injected -->
+            <div id="main">
+                <div ng-view>
+                </div>
             </div>
-            @include('layout.footer')
+        </div>
+        @include('layout.footer')
     </body>
 </html>

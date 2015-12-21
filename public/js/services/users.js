@@ -25,7 +25,20 @@ define(['./module'], function (services) {
                 method: "post",
                 url: baseApi + 'authenticate',
                 params: {email: email, password: password}
-            })
+            });
+        }
+
+        /**
+         * Check a current valid session
+         *
+         * @return {Boolean}
+         * @author Ashley Banks <ashleysmbanks89@gmail.com>
+         */
+        User.authorised = function () {
+            return $http({
+                method: "get",
+                url: '/api' + baseApi + 'authorised'
+            });
         }
 
         /**

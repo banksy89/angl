@@ -3,7 +3,7 @@ define(['../module'], function (controllers) {
     'use strict';
 
     /**
-     * Controller for handling any CRUD functionality for jobs
+     * Controller for displaying and handling any CRUD
      *
      * @param  {Object} $scope
      * @param  {Object} $http
@@ -11,30 +11,31 @@ define(['../module'], function (controllers) {
      * @param  {Object} JobsService - Service for accessing Jobs CRUD API
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
-    controllers.controller('JobsController', function ($scope, $http, $window, JobsService) {
-        var job = this;
-            job.data = {};
+    controllers.controller('JobsController', function ($scope, $http, $window, $routeParams, JobsService) {
 
-        // Doesn't feel very angulary but temporarily grabbing from a hidden value
-        var jobId = $('#js-job-id').val();
+        $scope.data = {};
+
+        var jobId = $routeParams.id;
 
         JobsService.getJob(jobId).then(function (data) {
             if (false !== data.data.success)  {
-                job.data = data.data.contents;
+                $scope.data = data.data.contents;
             }
         });
+
         /**
-         * Updates a job
+         * Method for updating the Job
          *
+         * @return {[type]}
          * @author Ashley Banks <ashleysmbanks89@gmail.com>
          */
-        job.updateJob = function () {
+        $scope.updateJob = function () {
             if ($scope.form.$valid) {
-                var update = JobsService.updateJob(job.data.id, job.data);
+                var update = JobsService.updateJob($scope.data.id, $scope.data);
 
                 update.success(function (data) {
                     if (data.success) {
-                        $window.location.href = '/jobs/preview/' + job.data.id;
+                        $window.location.href = '/jobs/preview/' + $scope.data.id;
                     }
                 });
             }

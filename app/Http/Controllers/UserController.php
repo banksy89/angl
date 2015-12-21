@@ -23,6 +23,19 @@ class UserController extends Controller
     }
 
     /**
+     * Returns authorised session
+     *
+     * @return \Illuminate\Http\Response json
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
+    public function authorised()
+    {
+        $payload['status'] = Auth::check();
+
+        return response()->json($payload);
+    }
+
+    /**
      * Authenticates a user via API request
      *
      * @return \Illuminate\Http\Response json

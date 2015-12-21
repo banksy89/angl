@@ -42,6 +42,8 @@ Route::group(['prefix' => 'api'], function () {
                         ]
                     ]
     );
+
+    Route::get('user/authorised', 'UserController@authorised');
 });
 
 Route::post('user/authenticate', 'UserController@authenticate');
@@ -49,7 +51,6 @@ Route::get('user/authenticate', 'UserController@authenticate');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
-// Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
@@ -60,10 +61,11 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/account/login', 'AccountController@login');
 
 // Jobs routes...
-Route::get('/jobs', 'JobsController@listing');
-Route::get('/jobs/show/{urlname}', 'JobsController@show');
-Route::get('/jobs/preview/{id}', 'JobsController@preview');
-Route::get('/jobs/edit/{id}', 'JobsController@edit');
-Route::get('/jobs/user/{id}', 'JobsController@user');
-Route::get('/jobs/complete', 'JobsController@complete');
+// Route::get('/jobs', 'JobsController@listing');
+// Route::get('/jobs/show/{urlname}', 'JobsController@show');
+// Route::get('/jobs/preview/{id}', 'JobsController@preview');
+// Route::get('/jobs/edit/{id}', 'JobsController@edit');
+// Route::get('/jobs/user/{id}', 'JobsController@user');
+// Route::get('/jobs/complete', 'JobsController@complete');
+
 
