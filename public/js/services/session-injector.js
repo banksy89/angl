@@ -1,6 +1,12 @@
 define(['./module'], function (services) {
+
     'use strict';
 
+    /**
+     * Session Injector - validates a users auth session and pops it in a http config
+     *
+     * @author Ashley Banks <ashleysmbanks89@gmail.com>
+     */
     services.factory('SessionInjector', function ($q, $injector) {
         var sessionInjector = {
             request: function (config) {
