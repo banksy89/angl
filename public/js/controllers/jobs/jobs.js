@@ -6,12 +6,11 @@ define(['../module'], function (controllers) {
      * Controller for displaying and handling any CRUD
      *
      * @param  {Object} $scope
-     * @param  {Object} $http
      * @param  {Object} $window
      * @param  {Object} JobsService - Service for accessing Jobs CRUD API
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
-    controllers.controller('JobsController', function ($scope, $http, $window, $routeParams, JobsService) {
+    controllers.controller('JobsController', function ($scope, $window, $routeParams, JobsService) {
 
         $scope.data = {};
 

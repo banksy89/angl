@@ -6,12 +6,11 @@ define(['../module'], function (controllers) {
      * Controls the job listing/search page
      *
      * @param  {Object} $scope
-     * @param  {Object} $http
      * @param  {Object} $routeParams
      * @param  {Array}  JobsService
      * @author Ashley Banks <ashleysmbanks89@gmail.com>
      */
-    controllers.controller('JobsListController', function ($scope, $http, $routeParams, JobsService) {
+    controllers.controller('JobsListController', function ($scope, $routeParams, JobsService) {
 
         $scope.items = [];
 
